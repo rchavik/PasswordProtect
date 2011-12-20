@@ -2,14 +2,14 @@
     <h2><?php echo $title_for_layout; ?></h2>
     
     <?php
-      if(!is_writable($htpasswd)) { echo '<p class="error">'.__('Htpasswd is not writable',true).' ('.$htpasswd.')</p>'; }
+      if(!is_writable($htpasswd)) { echo '<p class="error">'.__('Htpasswd is not writable').' ('.$htpasswd.')</p>'; }
     ?>
     
     <?php echo $this->Form->create('Htpasswd',array('url'=>$this->here));?>
     <fieldset>
         <div class="tabs">
             <ul>
-                <li><a href="#passwordprotect-main"><span><?php __('User'); ?></span></a></li>
+                <li><a href="#passwordprotect-main"><span><?php echo __('User'); ?></span></a></li>
             </ul>
 
             <div id="region-main">
@@ -22,8 +22,8 @@
 
     <div class="buttons">
     <?php
-        echo $this->Form->end(__('Save', true));
-        echo $this->Html->link(__('Cancel', true), array(
+        echo $this->Form->end(__('Save'));
+        echo $this->Html->link(__('Cancel'), array(
             'action' => 'index',
         ), array(
             'class' => 'cancel',

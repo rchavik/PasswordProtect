@@ -72,7 +72,7 @@
      */
     public function admin_index()
     {
-      $this->set('title_for_layout', __('Password Protect', true));
+      $this->set('title_for_layout', __('Password Protect'));
       
       $records = $this->Htpasswd->find('all');
       
@@ -88,14 +88,14 @@
      */
     public function admin_add()
     {
-      $this->set('title_for_layout', __('Htpasswd Add User', true));
+      $this->set('title_for_layout', __('Htpasswd Add User'));
       
       if (!empty($this->data)) {
         if ($this->Htpasswd->save($this->data)) {
-          $this->Session->setFlash(__('User has been added', true), 'default', array('class' => 'success'));
+          $this->Session->setFlash(__('User has been added'), 'default', array('class' => 'success'));
           $this->redirect(array('action'=>'index'));
         } else {
-          $this->Session->setFlash(__('User could not be saved. Please, try again.', true), 'default', array('class' => 'error'));
+          $this->Session->setFlash(__('User could not be saved. Please, try again.'), 'default', array('class' => 'error'));
         }
       }
     }
@@ -109,16 +109,16 @@
      */
     public function admin_edit($username)
     {
-      $this->set('title_for_layout', __('Htpasswd User Edit '.$username, true));
+      $this->set('title_for_layout', __('Htpasswd User Edit '.$username));
     
       if (!empty($this->data)) {
           $this->data['Htpasswd']['username'] = $username;
           
           if ($this->Htpasswd->save($this->data)) {
-              $this->Session->setFlash(__('User password has been updated', true), 'default', array('class' => 'success'));
+              $this->Session->setFlash(__('User password has been updated'), 'default', array('class' => 'success'));
               $this->redirect(array('action'=>'index'));
           } else {
-              $this->Session->setFlash(__('User password could not be updated', true), 'default', array('class' => 'error'));
+              $this->Session->setFlash(__('User password could not be updated'), 'default', array('class' => 'error'));
           }
       }
     }
@@ -137,11 +137,11 @@
           $this->$blackHoleCallback();
       }
       if ($this->Htpasswd->delete($username)) {
-        $this->Session->setFlash(__('User deleted', true), 'default', array('class' => 'success'));
+        $this->Session->setFlash(__('User deleted'), 'default', array('class' => 'success'));
       }
       else
       {
-        $this->Session->setFlash(__('Failed to delete user', true), 'default', array('class' => 'error'));
+        $this->Session->setFlash(__('Failed to delete user'), 'default', array('class' => 'error'));
       }
       
       $this->redirect(array('action'=>'index'));
@@ -158,11 +158,11 @@
     {
       if($this->Htaccess->enable())
       {
-        $this->Session->setFlash(__('Htpasswd enabled', true), 'default', array('class' => 'success'));
+        $this->Session->setFlash(__('Htpasswd enabled'), 'default', array('class' => 'success'));
       }
       else
       {
-        $this->Session->setFlash(__('Failed to enable htpasswd', true), 'default', array('class' => 'error'));
+        $this->Session->setFlash(__('Failed to enable htpasswd'), 'default', array('class' => 'error'));
       }
       
       $this->redirect(array('action'=>'index'));
@@ -179,11 +179,11 @@
     {
       if($this->Htaccess->disable())
       {
-        $this->Session->setFlash(__('Htpasswd disabled', true), 'default', array('class' => 'success'));
+        $this->Session->setFlash(__('Htpasswd disabled'), 'default', array('class' => 'success'));
       }
       else
       {
-        $this->Session->setFlash(__('Failed to disable htpasswd', true), 'default', array('class' => 'error'));
+        $this->Session->setFlash(__('Failed to disable htpasswd'), 'default', array('class' => 'error'));
       }
       
       $this->redirect(array('action'=>'index'));
